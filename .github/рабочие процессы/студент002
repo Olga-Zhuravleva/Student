@@ -1,0 +1,58 @@
+namespace студент
+{
+
+    class Student
+    {
+        public string name;
+        public int kurs;
+        public bool stependia;
+        public Student(string name, int kurs, bool stependia)
+        {
+            this.stependia = stependia;
+            this.name = name;
+            this.kurs = kurs;
+        }
+        public void InFo()
+        {
+            Console.WriteLine($"\n\tИмя= {name}\n\tкурс=  {kurs}\n\tcтепендия=  {stependia}");
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Имя студента-  ");
+            string name = Convert.ToString(Console.ReadLine());
+            Console.WriteLine("\nВведите курс - ");
+            int kurs = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; kurs > 5; i++)
+            {
+                Console.WriteLine("\t\nТакого курса нет \t\nВведите курс (от 1 до 5)-  ");
+                kurs = Convert.ToInt32(Console.ReadLine());
+            }
+            Console.WriteLine("\n\t 1-если он получает степендию\n\t 2-если он не получает степендию");
+            Console.WriteLine("\n\tВаш выбор: ");
+            int ct = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; ct != 1 && ct != 2; i++)
+            {
+                Console.WriteLine("\n\tОшибка!!!\n\tВведите 1 если он получает степендию\n\tВведите 2 если он не получает степендию");
+                Console.WriteLine("\n\tВаш выбор: ");
+                ct = Convert.ToInt32(Console.ReadLine());
+            }
+            bool stependia = false;
+            if (ct == 1)
+            {
+                stependia = true;
+            }
+            if (ct == 2)
+            {
+                stependia = false;
+            }
+            Student ArtemRud = new Student(name, kurs, stependia);
+            ArtemRud.InFo();
+            Console.ReadKey();
+        }
+    }
+
+    
+}
